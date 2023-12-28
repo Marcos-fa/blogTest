@@ -1,8 +1,9 @@
 import {scaleFont} from './mixins';
 
 // FONT FAMILY
-export const FONT_FAMILY_REGULAR = 'OpenSans-Regular';
-export const FONT_FAMILY_BOLD = 'OpenSans-Bold';
+export const FONT_FAMILY_REGULAR = 'Verdana';
+export const FONT_FAMILY_BOLD = 'Verdana-Bold';
+export const FONT_FAMILY_ITALIC = 'Verdana-Italic';
 
 // FONT WEIGHT
 export const FONT_WEIGHT_REGULAR = '400';
