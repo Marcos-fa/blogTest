@@ -1,25 +1,37 @@
-import {Button, Text, View} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import AppStore from 'stores/AppStore';
 import styles from './HomeStyles';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {getPosts} from 'api/AppApi';
+import PreviewContainer from 'container/Preview';
+import {storeData, getData} from 'utils/asyncStorage';
 
-const Counter = () => {
-  const {count, inc, dec} = AppStore();
-  return (
-    <View style={styles.container}>
-      <Text>{count}</Text>
-      <Button onPress={inc} title="Increment" />
-      <Button onPress={dec} title="Decrement" />
-    </View>
-  );
+const getAllPosts = async (setPosts: any) => {
+  const posts = await getPosts();
+  setPosts(posts);
+  await storeData(posts);
+};
+
+const getOfflinePosts = async (setPosts: any) => {
+  const posts = await getData();
+  setPosts(posts);
 };
 
 const HomeScreen = () => {
+  const {posts, setPosts, isConnected} = AppStore();
+  useEffect(() => {
+    if (isConnected) {
+      getAllPosts(setPosts);
+    } else {
+      getOfflinePosts(setPosts);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isConnected, posts.length]);
+
   return (
-    <View style={styles.container}>
-      <Text>HomeScreen</Text>
-      <Counter />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <PreviewContainer />
+    </SafeAreaView>
   );
 };
 
