@@ -6,12 +6,15 @@ import {verticalScale} from 'styles/mixins';
 import {useNavigation} from '@react-navigation/native';
 import styles from './NewPostStyles';
 import AppStore from 'stores/AppStore';
+import moment from 'moment';
+moment.locale('es');
 
 const NewPost = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [content, setContent] = useState('');
   const [failed, setFailed] = useState(false);
+  const date = new Date();
   const navigation = useNavigation();
   const {setPosts} = AppStore();
 
@@ -57,6 +60,12 @@ const NewPost = () => {
           value={author}
           onChangeText={handleAuthorChange}
           error={failed && !author}
+        />
+
+        <Input
+          value={moment(date).format('LL')}
+          editable={false}
+          customStyle={styles.disabled}
         />
 
         <Input

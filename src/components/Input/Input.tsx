@@ -7,6 +7,7 @@ import {InputProps} from 'interfaces/components/ITextInput';
 const Input: React.FC<InputProps> = ({
   value,
   error,
+  editable = true,
   onChangeText,
   placeholder,
   customStyle,
@@ -17,6 +18,7 @@ const Input: React.FC<InputProps> = ({
     <TextInput
       style={[styles.input, errorStyle, customStyle]}
       value={value}
+      editable={editable}
       onChangeText={onChangeText}
       placeholder={placeholder}
       multiline

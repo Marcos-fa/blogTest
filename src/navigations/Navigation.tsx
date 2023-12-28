@@ -17,7 +17,11 @@ const Navigation = () => {
         component={HomeScreen}
         options={{headerShown: false}}
       />
-      <Stack.Screen name="NewPost" component={NewPost} />
+      <Stack.Screen
+        name="NewPost"
+        options={{title: 'Agregar Entrada'}}
+        component={NewPost}
+      />
       <Stack.Screen name="Post" component={PostScreen} />
     </Stack.Navigator>
   );

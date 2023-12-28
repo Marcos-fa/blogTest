@@ -12,4 +12,7 @@ export default StyleSheet.create({
     width: horizontalScale(350),
     paddingTop: 30,
   },
+  disabled: {
+    opacity: 0.5,
+  },
 });
