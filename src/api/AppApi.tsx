@@ -11,7 +11,7 @@ export const getPosts = async (): Promise<IFullPost[]> => {
     const response = await axios.get(API_URL + '/api/getPosts');
     return response.data;
   } catch (error) {
-    console.error('Error getting post s:', error);
+    console.log('Error getting post s:', error);
     throw error;
   }
 };
@@ -21,7 +21,7 @@ export const createPost = async (post: IPost): Promise<IPost> => {
     const response = await axios.post(API_URL + '/api/addPost', post);
     return response.data;
   } catch (error) {
-    console.error('Error creating post :', error);
+    console.log('Error creating post :', error);
     throw error;
   }
 };
