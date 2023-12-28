@@ -4,10 +4,10 @@ import {horizontalScale, verticalScale} from 'styles/mixins';
 
 export default StyleSheet.create({
   container: {
-    // flex: 1,
     backgroundColor: 'white',
     width: horizontalScale(350),
     height: verticalScale(120),
+    alignSelf: 'center',
     borderRadius: 10,
     padding: 20,
   },

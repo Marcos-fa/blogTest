@@ -18,7 +18,7 @@ const getOfflinePosts = async (setPosts: any) => {
 };
 
 const HomeScreen = () => {
-  const {setPosts, isConnected} = AppStore();
+  const {posts, setPosts, isConnected} = AppStore();
   useEffect(() => {
     if (isConnected) {
       getAllPosts(setPosts);
@@ -26,7 +26,7 @@ const HomeScreen = () => {
       getOfflinePosts(setPosts);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isConnected]);
+  }, [isConnected, posts.length]);
 
   return (
     <SafeAreaView style={styles.container}>

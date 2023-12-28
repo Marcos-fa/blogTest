@@ -38,10 +38,10 @@ const NewPost = () => {
       setTitle('');
       setAuthor('');
       setContent('');
-      createPost({title, author, content, date: new Date()});
-      navigation.canGoBack() && navigation.goBack();
+      createPost({title, author, content, date: date});
       const data = await getPosts();
       setPosts(data);
+      navigation.canGoBack() && navigation.goBack();
     }
   };
 
@@ -73,7 +73,7 @@ const NewPost = () => {
           value={content}
           onChangeText={handleContentChange}
           multiline
-          customStyle={{height: verticalScale(250)}}
+          customStyle={{height: verticalScale(200)}}
           error={failed && !content}
         />
 

@@ -6,6 +6,7 @@ export default StyleSheet.create({
   container: {
     width: horizontalScale(350),
     height: verticalScale(100),
+    alignSelf: 'center',
   },
   top: {
     flexDirection: 'row',
